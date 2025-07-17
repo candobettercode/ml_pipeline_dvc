@@ -11,7 +11,7 @@ log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)
 
 # logging configuration
-logger = logging.getLogger('model_building')
+logger = logging.getLogger('model_training')
 logger.setLevel('DEBUG')
 
 console_handler = logging.StreamHandler()
