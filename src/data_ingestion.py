@@ -27,7 +27,7 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
-'''
+
 def load_params(params_path: str) -> dict:
     """Load parameters from a YAML file."""
     try:
@@ -44,7 +44,7 @@ def load_params(params_path: str) -> dict:
     except Exception as e:
         logger.error('Unexpected error: %s', e)
         raise
-'''
+
 def load_data(data_url: str) -> pd.DataFrame:
     """Load data from a CSV file."""
     try:
@@ -86,9 +86,9 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     try:
-        #params = load_params(params_path='params.yaml')
-        #test_size = params['data_ingestion']['test_size']
-        test_size = 0.2
+        params = load_params(params_path='params.yaml')
+        test_size = params['data_ingestion']['test_size']
+        #test_size = 0.2
         data_path = 'https://raw.githubusercontent.com/candobettercode/ml_pipeline_dvc/refs/heads/main/experiments/spam.csv'
         df = load_data(data_url=data_path)
         final_df = preprocess_data(df)
